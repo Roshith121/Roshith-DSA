@@ -8,20 +8,21 @@ public class LinkedListReversal {
         node.next = new NodeLinkedList(2);
         node.next.next = new NodeLinkedList(3);
         node.next.next.next = new NodeLinkedList(4);
-
-//        while(node!=null){
-//            System.out.print(" "+node.data);
-//            node = node.next;
-//        }
-
+        System.out.println(" before reversing : ");
+        print(node);
         node = reverseNodeUsingRecursion(node);
-        System.out.println(" After reversing : ");
         System.out.println("");
+        System.out.println(" After reversing : ");
+        print(node);
+    }
+
+    private static void print(NodeLinkedList node) {
         while(node!=null){
             System.out.print(" "+node.data);
             node = node.next;
         }
     }
+
 
     private static NodeLinkedList reverseNodeUsingRecursion(NodeLinkedList node) {
 
