@@ -13,14 +13,24 @@ public class OddEvenLinkedList {
         node2.next.next.next = new NodeLinkedList(7);
         node.next.next.next.next=node2;
         print(node);
-        NodeLinkedList odd = oddLinkedList(node);
-        NodeLinkedList even = evenLinkedList(node);
+        NodeLinkedList oddeven = oddEvenList(node);
         System.out.println("");
-        System.out.println("ODD Linked List");
-        print(odd);
-        System.out.println("");
-        System.out.println("even Linked List");
-        print(even);
+        System.out.println("odd even Linked List");
+        print(oddeven);
+    }
+
+    private static NodeLinkedList oddEvenList(NodeLinkedList node) {
+        NodeLinkedList tempOdd =  oddLinkedList(node);
+        NodeLinkedList tempEven = evenLinkedList(node);
+        NodeLinkedList tempOddEven =tempOdd;
+        while(tempOdd.next!=null){
+            tempOdd = tempOdd.next;
+            if(tempOdd.next.next==null){
+                tempOdd.next.next =tempEven;
+                break;
+            }
+        }
+        return tempOddEven;
     }
 
     private static NodeLinkedList oddLinkedList(NodeLinkedList node) {
